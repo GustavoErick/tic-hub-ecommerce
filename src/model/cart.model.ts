@@ -56,7 +56,7 @@ export class Cart {
   }
 
   // Remove todos os itens do carrinho.
-  removeAllItens() {
+  removeAllItems() {
     this.cartItems.splice(0)
   }
 }

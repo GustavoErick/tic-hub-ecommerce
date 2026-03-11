@@ -20,8 +20,8 @@ export default {
       this.cart.addItem(product, quantity)
     },
 
-    removeAllItensFromCart() {
-      this.cart.removeAllItens()
+    removeAllItemsFromCart() {
+      this.cart.removeAllItems()
     },
     removeItemFromCart(product: Product) {
       this.cart.removeItem(product)
@@ -50,6 +50,6 @@ export default {
     </ul>
     <p>Quantidade total de produtos: {{ cart.getTotalItems() }}</p>
     <p>Preço total R${{ cart.getFinalPrice().toFixed(2).replace('.', ',') }}</p>
-    <button @click="removeAllItensFromCart">Remover todos os itens</button>
+    <button @click="removeAllItemsFromCart">Remover todos os itens</button>
   </div>
 </template>
