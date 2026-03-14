@@ -1,10 +1,10 @@
 <script lang="ts">
 import { Product } from '@/model/product.model'
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 export default defineComponent({
   props: {
     product: {
-      type: Product,
+      type: Object as PropType<Product>,
     },
   },
   methods: {
@@ -16,8 +16,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1>{{ product?.name }}</h1>
-  <h3>{{ product?.category?.name }}</h3>
-  <p>Preço: R${{ product?.price.toFixed(2).replace('.', ',') }}</p>
-  <button @click="addToCart">Adicionar ao carrinho</button>
+  <Card>
+    <template #title>{{ product?.name }}</template>
+    <template #subtitle>{{ product?.category?.name }}</template>
+    <template #footer>
+      <section class="grid grid-cols-2 items-center">
+        <p class="m-0">Preço: R$ {{ product?.price.toFixed(2).replace('.', ',') }}</p>
+        <Button class="shadow-lg" label="Adicionar ao carrinho" @click="addToCart" />
+      </section>
+    </template>
+  </Card>
 </template>
