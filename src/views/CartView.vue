@@ -1,6 +1,5 @@
 <script lang="ts">
 import { Category } from '@/model/category.model'
-import ProductCard from '@/components/card/ProductCard.vue'
 import { Cart } from '@/model/cart.model'
 import { Product } from '@/model/product.model'
 
@@ -54,19 +53,16 @@ export default {
       })
     },
   },
-  components: {
-    ProductCard,
+  mounted() {
+    let aux = 1
+    this.products.forEach((item) => {
+      this.addItemToCart(item, aux++)
+    })
   },
 }
 </script>
 
 <template>
-  <section class="grid-col-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-    <h1 class="text-3xl font-semibold col-span-full">Produtos</h1>
-    <div v-for="product in products" :key="product.id">
-      <ProductCard :product="product" @add-to-cart="addItemToCart" />
-    </div>
-  </section>
   <div>
     <DataView :value="cart.cartItems">
       <template #header>
