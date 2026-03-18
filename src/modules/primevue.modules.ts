@@ -10,6 +10,8 @@ import DataView from 'primevue/dataview'
 import InputNumber from 'primevue/inputnumber'
 import ConfirmDialog from 'primevue/confirmdialog'
 import Toast from 'primevue/toast'
+import Menubar from 'primevue/menubar'
+import Menu from 'primevue/menu'
 
 import ConfirmationService from 'primevue/confirmationservice'
 import ToastService from 'primevue/toastservice'
@@ -29,4 +31,6 @@ export function setPrimeVue(app: App) {
   app.component('InputNumber', InputNumber)
   app.component('ConfirmDialog', ConfirmDialog)
   app.component('Toast', Toast)
+  app.component('Menubar', Menubar)
+  app.component('Menu', Menu)
 }
